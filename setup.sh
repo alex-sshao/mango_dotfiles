@@ -1,15 +1,16 @@
 #!/bin/bash
 
-checkcmd(){
+bd="$( cd "$( dirname "$0" )" && pwd )/"
+link(){
+	echo "Linking ${bd}$1 to $2"
+	ln -sf ${bd}$1 $2
 	if [ $? -eq 0 ]; then
 		echo Success!
 	else
 		echo Fail!
 	fi
 }
-bd="$( cd "$( dirname "$0" )" && pwd )"
-echo ${bd}
-echo Linking ${bd} to ~/.config/mango... 
-ln -sf ${bd}/mango ~/.config/mango
-checkcmd
+
+link mango ~/.config/mango
+
 
