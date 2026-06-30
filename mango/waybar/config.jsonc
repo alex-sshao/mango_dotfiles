@@ -22,13 +22,13 @@
         "temperature",
         "pulseaudio",
         "backlight",
-        // "battery",
+        "battery",
         "custom/power"
     ],
     "dwl/window": {
-        "format": "[{layout}]{title}",
+        "format": "{title}",
         "on-click":"bash ~/.config/mango/scripts/screenshot.sh",
-        // "max-length": 50
+        "max-length": 35
     },
     "ext/workspaces": {
       "format": "{icon}",
@@ -62,7 +62,7 @@
     },
     "network": {
       "interval": 2,
-      "format-wifi": "{essid} ({signalStrength}%)\uf1eb",
+      "format-wifi": "({signalStrength}%)\uf1eb",
       "format-ethernet": "󰈀 {ifname}",
       "format-linked": "\uf059 No IP ({ifname})",
       "format-disconnected": "\uf071 Disconnected",
@@ -124,6 +124,7 @@
         "tooltip": false,
         "format-muted": " Muted",
         "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol",
         "on-scroll-up": "pamixer -i 2",
         "on-scroll-down": "pamixer -d 2",
         "scroll-step": 5,
