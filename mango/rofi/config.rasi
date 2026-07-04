@@ -1,19 +1,53 @@
+@import "catppuccin-frappe"
+
 * {
     g-spacing: 10px;
     g-margin: 0;
+    b-radius: 10px;
+    g-padding: 8px;
+
+/*
     b-color: #1f0f0fcc;
     fg-color: #8EA9AB;
     fgp-color: #3f1f1fFF;
-    b-radius: 10px;
-    g-padding: 8px;
     hl-color:#3d1111;
     highlight: bold italic underline #9C739C;
     hlt-color: #9C739Ccc;
     alt-color: #111111cc;
     wbg-color: #3f1f1f;
-    // wbg-color: #201B14d0;
-    w-border: 2px solid;
     w-border-color: #1f0f0f;
+    wbg-color: #3f1f1f;
+*/
+    
+ selected-active-foreground:  @background;
+ lightfg:                     @text;
+ separatorcolor:              @foreground;
+ urgent-foreground:           @red;
+ alternate-urgent-background: @lightbg;
+ lightbg:                     @mantle;
+ background-color:            transparent;
+ border-color:                @foreground;
+ normal-background:           @background;
+ selected-urgent-background:  @red;
+ alternate-active-background: @lightbg;
+ spacing:                     2;
+ alternate-normal-foreground: @foreground;
+ urgent-background:           @background;
+ selected-normal-foreground:  @lightbg;
+ active-foreground:           @blue;
+ background:                  @base;
+ selected-active-background:  @blue;
+ active-background:           @background;
+ selected-normal-background:  @lightfg;
+ alternate-normal-background: @lightbg;
+ foreground:                  @text;
+ selected-urgent-foreground:  @background;
+ normal-foreground:           @foreground;
+ alternate-urgent-foreground: @red;
+ alternate-active-foreground: @blue;
+
+
+    w-border: 2px solid;
     w-padding: 12px;
 }
 
@@ -41,14 +75,14 @@ window {
     width: 750px;
     height: 500px;
     border-radius: @b-radius;
-    background-color: @wbg-color;
+    background-color: @background;
     border: 4px solid;
-    border-color: @w-border-color;
+    border-color: @separatorcolor;
     padding: @w-padding;
 }
 
 prompt {
-    text-color: @fg-color;
+    text-color: @normal-foreground;
 }
 
 inputbar {
@@ -58,8 +92,8 @@ inputbar {
 
 entry {
     placeholder: "Search Apps";
-    text-color: @fg-color;
-    placeholder-color: @fgp-color;
+    text-color: @normal-foreground;
+    placeholder-color: @active-foreground;
 }
 
 mainbox {
@@ -75,50 +109,57 @@ element {
     padding: @g-padding;
     border: 0px solid;
     border-radius: @b-radius;
-    border-color: @b-color;
+    border-color: @separatorcolor;
     background-color: transparent;
-    text-color: @fg-color;
+    //text-color: @normal-foreground;
 }
 
 element normal.normal {
 	background-color: transparent;
-	text-color: @fg-color;
+	text-color: @normal-foreground;
 }
 
 element alternate.normal {
-	//background-color: @alt-color;
-    background-color: transparent;
-	text-color: @fg-color;
+	background-color: @alternate-normal-background;
+  text-color:       @alternate-normal-foreground;
 }
 
 element selected.active {
-	background-color: @hl-color;
-	text-color: @hlt-color;
+	background-color: @selected-active-background;
+	text-color: @selected-active-foreground;
 }
 
 element selected.normal {
-	background-color: @hl-color;
-	text-color: @hlt-color;
+  background-color: @selected-normal-background;
+  text-color:       @selected-normal-foreground;
 }
 
-element-text, element-icon {
-    background-color: inherit;
-    text-color:       inherit;
+
+element-text {
+  background-color: transparent;
+  cursor:           inherit;
+  highlight:        inherit;
+  text-color:       inherit;
+}
+element-icon {
+  background-color: transparent;
+  text-color:       inherit;
 }
 
-element-text selected.normal {
-    highlight: bold italic underline rgb(92, 11, 0);
-    background-color: inherit;
-    text-color:       inherit;
+selected.normal {
+  background-color: @selected-normal-background;
+  text-color:       @selected-normal-foreground;
+  highlight: bold italic underline rgb(92, 11, 0);
 }
 
 
 message {
-    background-color: red;
-    border: 0px solid;
+    padding:      1px ;
+    border-color: @separatorcolor;
+    border:       2px dash 0px 0px ;
 }
 
 textbox {
-    highlight:  @highlight;
+    highlight:  inherit;
     text-color: @foreground;
 }
