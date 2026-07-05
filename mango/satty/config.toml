@@ -8,7 +8,7 @@ fullscreen = false
 #fullscreen = "current-screen"
 # resize initially (0.20.1)
 resize = { mode = "smart" }
-# resize = { mode = "size", width = 2000, height = 800 }
+#resize = { mode = "size", width = 2000, height = 800 }
 # try to have the window float (0.20.1). This may depend on the compositor.
 floating-hack = true
 # Change to true to automatically copy to clipboard after every annotation change (0.21.0)
