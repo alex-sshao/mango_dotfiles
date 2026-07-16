@@ -84,7 +84,9 @@
       "format": " {load}%"
     },
     "memory": {
-        "format": " {}%"
+		"interval": 30,
+        "format": " {}%",
+		"format-alt": "{used:0.01f}G"
     },
     "temperature": {
         // "thermal-zone": 2,
