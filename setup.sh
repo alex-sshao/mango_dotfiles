@@ -3,25 +3,35 @@
 bd="$( cd "$( dirname "$0" )" && pwd )/"
 
 
-linkf(){
-	if [ ! -f $2 ] || [ ! -d $2 ]; then 
-		echo "$2 found, do you want to replace it?"
+checkf(){
+	if [[ -e $1 ]]; then 
+		echo "$1 found, do you want to replace it?"
 		read -p "->(Y/N) " conf
-		if [ $conf == [yY] ]; then
-			rm $2
-			echo "Removed $2, linking..."
+		if [[ $conf == [yY] ]]; then
+			rm -rf $1
+			echo "Removed $1"
 		else
-			echo "$2 files untouched."
+			echo "$1 untouched."
 			return 0
 		fi
-	fi
-	echo "Linking ${bd}$1 to $2"
-	ln -sf ${bd}$1 $2
-	if [ $? -eq 0 ]; then
-		echo Success!
 	else
-		echo Fail!
+		echo "$1 not found."
 	fi
+	return 1
+}
+
+linkf(){
+	checkf $2
+	if [[ $? == 1 ]]; then
+		echo "Linking ${bd}$1 to $2"
+		ln -sf ${bd}$1 $2
+		if [ $? -eq 0 ]; then
+			echo Success!
+		else
+			echo Fail!
+		fi
+	fi
+	echo ""
 }
 
 linkf mango ~/.config/mango
