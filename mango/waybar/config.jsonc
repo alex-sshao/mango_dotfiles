@@ -8,8 +8,8 @@
     // Choose the order of the modules
     "modules-left": [
         "ext/workspaces",
-        "wlr/taskbar",
-        "dwl/window"
+        "wlr/taskbar"
+        //"dwl/window"
     ],
     "modules-center": [
         "clock",
@@ -27,7 +27,7 @@
     ],
     "dwl/window": {
         "format": "{title}",
-        "on-click":"bash ~/.config/mango/scripts/screenshot.sh",
+        //"on-click":"bash ~/.config/mango/scripts/screenshot.sh",
         "max-length": 35
     },
     "ext/workspaces": {
@@ -124,7 +124,7 @@
         "tooltip": false,
         "format-muted": " Muted",
         "on-click": "pamixer -t",
-        "on-click-right": "pavucontrol",
+        "on-click-right": "pavucontrol -t 3",
         "on-scroll-up": "pamixer -i 2",
         "on-scroll-down": "pamixer -d 2",
         "scroll-step": 5,
