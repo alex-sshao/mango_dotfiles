@@ -91,7 +91,7 @@ inputbar {
 }
 
 entry {
-    placeholder: "Enter equation";
+    placeholder: "Search";
     text-color: @normal-foreground;
     placeholder-color: @active-foreground;
 }
