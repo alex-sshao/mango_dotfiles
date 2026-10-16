@@ -44,7 +44,7 @@ function send_notification {
 
 case $1 in
     up)
-		swayosd-client --output-volume 5
+		swayosd-client --output-volume 2
 	    # # Set the volume on (if it was muted)
 	    # pactl set-sink-mute @DEFAULT_SINK@ 0 > /dev/null
 	    # # Up the volume (+ 5%)
@@ -55,7 +55,7 @@ case $1 in
 	    # send_notification
 	;;
     down)
-		swayosd-client --output-volume -5
+		swayosd-client --output-volume -2
 	    # pactl set-sink-mute @DEFAULT_SINK@ 0 > /dev/null
 	    # curvol=`get_volume`
     	# rem=$(( (curvol - 5) % 5 ))
